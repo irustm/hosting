@@ -17,31 +17,27 @@ Change `DOMAIN` to your domain name. If you use `localhost`, you will need to ad
 
 ## CLI
 
-### Login
-
-// TODO CLI with npm
+#### Login to your Hosting instance:
 
 ```bash
-# Via CLI inside the container
-docker exec -it preview-hosting deno run -A cli/main.ts login admin
-
-# Or via API
-curl -X POST http://localhost/api/auth/login \
-  -H "Content-Type: application/json" \
-  -d '{"username":"admin","password":"YOUR_PASSWORD_FROM_LOGS"}'
+npx mudhost login --api https://your-domain.com
 ```
 
----
+Alternatively, you can provide username and password directly:
+```
+ mudhost login -u admin -p admin123 --api https://your-domain.com
+```
 
-### Prepare your project
+#### Deploy your project:
 
 ```bash
-mkdir -p ./my-project/dist
-echo "<h1>Hello World!</h1>" > ./my-project/dist/index.html
+npx mudhost deploy my-project ./dist
 ```
 
-### Deploy
+#### Access your preview:
 
-```bash
-docker exec -it preview-hosting deno run -A cli/main.ts deploy my-project ./my-project/dist
+```text
+https://my-project-main-12345.your-domain.com
 ```
+
+More about CLI Commands: [NPM](/npm)
