@@ -6,7 +6,7 @@ JWT_SECRET=${JWT_SECRET:-demo-secret-change-in-production}
 ADMIN_USERNAME=${ADMIN_USERNAME:-admin}
 ADMIN_PASSWORD=${ADMIN_PASSWORD:-admin123}
 
-echo "🚀 Deno Hosting starting..."
+echo "🚀 Hosting starting..."
 echo "📝 Domain: $DOMAIN"
 echo "🔐 Admin: $ADMIN_USERNAME"
 echo "🔑 Password: $ADMIN_PASSWORD"
@@ -16,7 +16,6 @@ check_dependencies() {
     if ! deno cache --no-lock main.ts 2>/dev/null; then
         echo "⚠️ Dependencies not fully cached, retrying..."
         sleep 2
-        # Пытаемся кэшировать основные зависимости по отдельности
         deno cache --no-lock https://deno.land/x/oak@v12.6.1/mod.ts || true
         deno cache --no-lock https://deno.land/std@0.202.0/fs/mod.ts || true
         deno cache --no-lock https://deno.land/x/djwt@v2.9/mod.ts || true
@@ -50,7 +49,6 @@ echo "📁 Created dashboard page"
 
 check_dependencies
 
-# Запускаем сервисы
 echo "🌐 Starting nginx..."
 nginx
 
@@ -59,7 +57,7 @@ timeout 30s deno run --allow-net --allow-read --allow-write --allow-env main.ts 
 echo "⚠️ First start failed, retrying..." && \
 deno run --allow-net --allow-read --allow-write --allow-env main.ts &
 
-echo "✅ Deno Hosting started successfully!"
+echo "✅ Hosting started successfully!"
 echo "📍 Access at: http://$DOMAIN"
 
 wait -n

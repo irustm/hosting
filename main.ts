@@ -674,7 +674,7 @@ router.get("/api/health", (ctx) => {
 // Root endpoint
 router.get("/", (ctx) => {
     ctx.response.body = {
-        message: "Deno Hosting API",
+        message: "Hosting API",
         version: "1.0.0",
         endpoints: {
             health: "/health",

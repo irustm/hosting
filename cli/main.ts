@@ -73,7 +73,7 @@ async function main() {
 
         default:
             console.log(`
-🚀 Deno Hosting CLI
+🚀 Hosting CLI
 
 Commands:
   login <username> <password>
