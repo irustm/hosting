@@ -1,0 +1,42 @@
+{
+  "name": "mudhost",
+  "version": "1.0.0",
+  "description": "CLI for Hosting - deploy preview environments with one command",
+  "main": "src/cli.js",
+  "bin": {
+    "mudhost": "./bin/hosting.js"
+  },
+  "scripts": {
+    "start": "node src/cli.js",
+    "test": "echo \"No tests yet\" && exit 0"
+  },
+  "keywords": [
+    "hosting",
+    "preview",
+    "deployment",
+    "cli",
+    "mudhost"
+  ],
+  "author": "Irustm",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/irustm/mudhost"
+  },
+  "dependencies": {
+    "axios": "^1.6.0",
+    "chalk": "^4.1.2",
+    "commander": "^11.1.0",
+    "inquirer": "^8.2.6",
+    "fs-extra": "^11.1.1",
+    "glob": "^10.3.0",
+    "mime-types": "^2.1.35",
+    "ora": "^5.4.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
