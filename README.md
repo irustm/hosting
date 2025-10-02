@@ -3,15 +3,18 @@
 ## Quick start
 
 ```bash
-docker run -d --name preview-hosting -e DOMAIN='localhost' -p 80:80 jamaks/hosting:latest
+docker run -d --name preview-hosting -e DOMAIN='your-domain.com' -p 80:80 jamaks/hosting:latest
 ```
 
-Change `DOMAIN` to your domain name. If you use `localhost`, you will need to add an entry to your `/etc/hosts`.
+Change `DOMAIN` to your domain name.
+
+If you use `localhost`, you will need to add an entry to your `/etc/hosts`.
 
 ### Set DNS (if need)
 
 ```
-*.example.com A YOUR_SERVER_IP
+your-domain.com A YOUR_SERVER_IP
+*.your-domain.com A YOUR_SERVER_IP
 ```
 
 
