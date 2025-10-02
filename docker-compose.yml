@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  deno-hosting:
+    build: .
+    ports:
+      - "80:80"
+    volumes:
+      - ./deployments:/app/deployments
+    environment:
+      - DOMAIN=localhost
+      # - DOMAIN=your-domain.com
+      # - EMAIL=admin@your-domain.com
+      # - JWT_SECRET=your-secret-key
+    restart: unless-stopped
+
+volumes:
+  deployments:
