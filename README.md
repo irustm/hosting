@@ -20,6 +20,8 @@ your-domain.com A YOUR_SERVER_IP
 
 ## CLI
 
+### NPM
+
 #### Login to your Hosting instance:
 
 ```bash
