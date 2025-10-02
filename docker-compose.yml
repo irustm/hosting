@@ -1,18 +1,29 @@
-version: '3.8'
-
 services:
-  deno-hosting:
-    build: .
+  traefik:
+    image: traefik:v2.9
     ports:
       - "80:80"
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./traefik.yml:/etc/traefik/traefik.yml
+    networks:
+      - web
+
+  jamaks-hosting:
+    image: jamaks/hosting:latest
     volumes:
       - ./deployments:/app/deployments
     environment:
-      - DOMAIN=localhost
-      # - DOMAIN=your-domain.com
-      # - EMAIL=admin@your-domain.com
-      # - JWT_SECRET=your-secret-key
-    restart: unless-stopped
+      - DOMAIN=your-domain.com
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.jamaks-hosting.rule=Host(`your-domain.com`)"
+      - "traefik.http.routers.jamaks-hosting.entrypoints=websecure"
+      - "traefik.http.routers.jamaks-hosting.tls.certresolver=myresolver"
+    networks:
+      - web
 
-volumes:
-  deployments:
+networks:
+  web:
+    external: true

@@ -80,7 +80,7 @@ class AuthService {
             return null;
         }
 
-        const isValid = await bcrypt.compare(password, user.passwordHash);
+        const isValid = password === user.passwordHash;
         if (!isValid) {
             console.log(`❌ Invalid password for user: ${username}`);
             return null;
@@ -121,7 +121,7 @@ class AuthService {
         const user: User = {
             id: Math.random().toString(36).substr(2, 9),
             username,
-            passwordHash: await bcrypt.hash(password),
+            passwordHash: password,
             role,
             createdAt: new Date()
         };
@@ -164,12 +164,22 @@ class DeploymentService {
 
         const domain = Deno.env.get('DOMAIN') || 'localhost';
 
-        let url: string;
+        let urls: string[];
         if (domain === 'localhost') {
-            url = `http://${deploymentId}.${domain}`;
+            urls = [
+                `http://${deploymentId}.${domain}/`,
+                `http://${domain}/deploy/${deploymentId}/`,
+                `http://${domain}/${deploymentId}/`
+            ];
         } else {
-            url = `http://${domain}/${deploymentId}/`;
+            urls = [
+                `http://${deploymentId}.${domain}/`,
+                `http://${domain}/deploy/${deploymentId}/`,
+                `http://${domain}/${deploymentId}/`
+            ];
         }
+
+        const mainUrl = urls[0];
 
         const createdAt = new Date();
         const expiresAt = new Date(createdAt.getTime() + 7 * 24 * 60 * 60 * 1000);
@@ -182,7 +192,8 @@ class DeploymentService {
             status: "building",
             createdAt,
             expiresAt,
-            url, // Используем правильный URL
+            url: mainUrl,
+            urls: urls,
             files: [],
             createdBy
         };
