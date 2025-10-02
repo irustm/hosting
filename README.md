@@ -1,4 +1,4 @@
-# Static Site Hosting for Preview
+# Self hosted static site hosting
 
 ## Quick start
 
