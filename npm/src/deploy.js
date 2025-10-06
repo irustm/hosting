@@ -38,7 +38,7 @@ class DeployManager {
             return files;
         } catch (error) {
             spinner.fail();
-            throw new Error(`Failed to read files: ${error.message}`);
+            throw new Error(`Failed to read files: ${error}`);
         }
     }
 
@@ -92,7 +92,7 @@ class DeployManager {
 
             if (error.response) {
                 const status = error.response.status;
-                const message = error.response.data?.error || error.message;
+                const message = error.response.data?.error || error;
 
                 switch (status) {
                     case 401:
@@ -104,7 +104,7 @@ class DeployManager {
                 }
             }
 
-            throw new Error(`Deployment failed: ${error.message}`);
+            throw new Error(`Deployment failed: ${error}`);
         }
     }
 
@@ -150,7 +150,7 @@ class DeployManager {
 
         } catch (error) {
             spinner.fail();
-            throw new Error(`Failed to list deployments: ${error.message}`);
+            throw new Error(`Failed to list deployments: ${error}`);
         }
     }
 
@@ -169,7 +169,7 @@ class DeployManager {
                 throw new Error(`Deployment not found: ${deploymentId}`);
             }
 
-            throw new Error(`Failed to delete deployment: ${error.message}`);
+            throw new Error(`Failed to delete deployment: ${error}`);
         }
     }
 }

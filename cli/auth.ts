@@ -31,13 +31,12 @@ export class AuthManager {
             const result = await response.json();
             this.token = result.token;
 
-            // Сохраняем токен в файл
-            await Deno.writeTextFile('.auth-token', this.token);
+            await Deno.writeTextFile('.auth-token', this.token!);
 
             console.log(`✅ Logged in as ${username}`);
             return true;
         } catch (error) {
-            console.error('Login failed:', error.message);
+            console.error('Login failed:', error);
             return false;
         }
     }

@@ -318,7 +318,7 @@ class DeploymentService {
                     await this.deleteDeployment(id);
                     result.deleted++;
                 } catch (error) {
-                    result.errors.push(`Failed to delete ${id}: ${error.message}`);
+                    result.errors.push(`Failed to delete ${id}: ${error}`);
                 }
             }
         }
@@ -572,7 +572,7 @@ router
             ctx.response.status = 201;
         } catch (error) {
             console.error("Deployment error:", error);
-            ctx.response.body = { error: `Deployment failed: ${error.message}` };
+            ctx.response.body = { error: `Deployment failed: ${error}` };
             ctx.response.status = 500;
         }
     })
@@ -604,7 +604,7 @@ router
 
         } catch (error) {
             console.error("Delete deployment error:", error);
-            ctx.response.body = { error: `Delete failed: ${error.message}` };
+            ctx.response.body = { error: `Delete failed: ${error}` };
             ctx.response.status = 500;
         }
     })
@@ -620,7 +620,7 @@ router
             ctx.response.status = 200;
         } catch (error) {
             console.error("Cleanup error:", error);
-            ctx.response.body = { error: `Cleanup failed: ${error.message}` };
+            ctx.response.body = { error: `Cleanup failed: ${error}` };
             ctx.response.status = 500;
         }
     })

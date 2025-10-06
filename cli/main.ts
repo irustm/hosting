@@ -127,7 +127,7 @@ async function whoami(config: any) {
         console.log(`🎯 Role: ${userInfo.user.role}`);
 
     } catch (error) {
-        console.error('❌ Failed to get user info:', error.message);
+        console.error('❌ Failed to get user info:', error);
         Deno.exit(1);
     }
 }
@@ -163,7 +163,7 @@ async function listDeployments(config: { apiUrl: string }) {
         });
 
     } catch (error) {
-        console.error('❌ List failed:', error.message);
+        console.error('❌ List failed:', error);
         Deno.exit(1);
     }
 }

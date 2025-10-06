@@ -80,7 +80,7 @@ export async function deploy(config: DeployConfig) {
 
         return deployment;
     } catch (error) {
-        console.error('❌ Deployment failed:', error.message);
+        console.error('❌ Deployment failed:', error);
         Deno.exit(1);
     }
 }

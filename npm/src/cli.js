@@ -97,7 +97,7 @@ class CLI {
             await this.auth.login(apiUrl, options);
             console.log(chalk.green('✅ Login successful!'));
         } catch (error) {
-            console.error(chalk.red('❌ Login failed:'), error.message);
+            console.error(chalk.red('❌ Login failed:'), error);
             process.exit(1);
         }
     }
@@ -113,7 +113,7 @@ class CLI {
         try {
             await this.deploy.deploy(projectId, distDir, options, apiUrl);
         } catch (error) {
-            console.error(chalk.red('❌ Deployment failed:'), error.message);
+            console.error(chalk.red('❌ Deployment failed:'), error);
             process.exit(1);
         }
     }
@@ -129,7 +129,7 @@ class CLI {
         try {
             await this.deploy.listDeployments(apiUrl, options.project);
         } catch (error) {
-            console.error(chalk.red('❌ Failed to list deployments:'), error.message);
+            console.error(chalk.red('❌ Failed to list deployments:'), error);
             process.exit(1);
         }
     }
@@ -145,7 +145,7 @@ class CLI {
         try {
             await this.deploy.deleteDeployment(deploymentId, apiUrl);
         } catch (error) {
-            console.error(chalk.red('❌ Failed to delete deployment:'), error.message);
+            console.error(chalk.red('❌ Failed to delete deployment:'), error);
             process.exit(1);
         }
     }
@@ -161,7 +161,7 @@ class CLI {
         try {
             await this.auth.whoami(apiUrl);
         } catch (error) {
-            console.error(chalk.red('❌ Failed to get user info:'), error.message);
+            console.error(chalk.red('❌ Failed to get user info:'), error);
             process.exit(1);
         }
     }

@@ -21,7 +21,7 @@ export async function deleteDeployment(config: DeleteConfig) {
 
         return result;
     } catch (error) {
-        console.error('❌ Delete failed:', error.message);
+        console.error('❌ Delete failed:', error);
         Deno.exit(1);
     }
 }

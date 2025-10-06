@@ -26,7 +26,7 @@ export async function runCleanup(config: CleanupConfig) {
 
         return result;
     } catch (error) {
-        console.error('❌ Cleanup failed:', error.message);
+        console.error('❌ Cleanup failed:', error);
         Deno.exit(1);
     }
 }

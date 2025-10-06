@@ -57,7 +57,7 @@ class AuthManager {
             if (error.response?.status === 401) {
                 throw new Error('Invalid credentials');
             }
-            throw new Error(`Login failed: ${error.message}`);
+            throw new Error(`Login failed: ${error}`);
         }
     }
 
@@ -86,7 +86,7 @@ class AuthManager {
             console.log(`  Role: ${chalk.bold(user.role)}`);
             console.log(`  API: ${chalk.bold(config.apiUrl)}`);
         } catch (error) {
-            throw new Error(`Failed to get user info: ${error.message}`);
+            throw new Error(`Failed to get user info: ${error}`);
         }
     }
 
