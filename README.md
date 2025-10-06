@@ -46,3 +46,44 @@ https://my-project-main-12345.your-domain.com
 ```
 
 More about CLI Commands: [NPM](/npm)
+
+### Deno
+
+`deno run --allow-net jsr:@mudhost/cli <command> [options]`
+
+#### Commands:
+```bash
+login <username> <password>
+Authenticate and save token
+
+deploy <project-id> [dist-dir] [branch] [commit]
+Deploy a new preview (requires auth)
+
+delete <deployment-id>
+Delete a specific deployment (requires auth)
+
+cleanup
+Manually run cleanup of expired deployments (requires admin)
+
+list
+List all deployments (requires auth)
+
+whoami
+Show current user info
+
+Options:
+--api=<url>          API server URL (default: http://localhost:8000)
+--username=<user>    Username for authentication
+--password=<pass>    Password for authentication
+--token=<token>      Direct token authentication
+
+```
+
+Examples:
+```bash
+deno run --allow-net jsr:@mudhost/cli login admin admin123
+deno run --allow-net --allow-read jsr:@mudhost/cli deploy my-project ./dist
+deno run --allow-net --allow-read jsr:@mudhost/cli deploy my-project --username=admin --password=admin123
+deno run --allow-net jsr:@mudhost/cli list --api=https://hosting.example.com
+```
+

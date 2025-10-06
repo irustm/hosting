@@ -101,10 +101,10 @@ Options:
   --token=<token>      Direct token authentication
 
 Examples:
-  deno run -A cli/main.ts login admin admin123
-  deno run -A cli/main.ts deploy my-project ./dist
-  deno run -A cli/main.ts deploy my-project --username=admin --password=admin123
-  deno run -A cli/main.ts list --api=https://hosting.example.com
+  deno run --allow-net jsr:@mudhost/cli login admin admin123
+  deno run --allow-net --allow-read jsr:@mudhost/cli deploy my-project ./dist
+  deno run --allow-net --allow-read jsr:@mudhost/cli deploy my-project --username=admin --password=admin123
+  deno run --allow-net jsr:@mudhost/cli list --api=https://hosting.example.com
       `);
     }
 }
