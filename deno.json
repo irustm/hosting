@@ -1,13 +1,17 @@
 {
+  "name": "@mudhost/cli",
+  "version": "0.1.0",
+  "license": "MIT",
+  "exports": "./cli/main.ts",
   "tasks": {
-    "dev": "deno run --allow-net --allow-read --allow-write --allow-env main.ts",
-    "cache": "deno cache main.ts cli/main.ts"
+    "server": "deno run --allow-net --allow-read main.ts",
+    "cli": "deno run --allow-net --allow-read cli/main.ts"
+  },
+  "publish": {
+    "include": ["cli"]
   },
   "imports": {
-    "oak": "https://deno.land/x/oak@v12.6.1/mod.ts",
-    "fs": "https://deno.land/std@0.202.0/fs/mod.ts",
-    "path": "https://deno.land/std@0.202.0/path/mod.ts",
-    "bcrypt": "https://deno.land/x/bcrypt@v0.4.1/mod.ts",
-    "djwt": "https://deno.land/x/djwt@v2.9/mod.ts"
+    "@std/fs": "jsr:@std/fs@^1.0.19",
+    "@std/path": "jsr:@std/path@^1.1.2"
   }
 }

@@ -1,5 +1,5 @@
-import { walk } from "https://deno.land/std@0.202.0/fs/walk.ts";
-import { join, relative } from "https://deno.land/std@0.202.0/path/mod.ts";
+import { walk } from "@std/fs/walk";
+import { relative } from "@std/path/relative";
 import { AuthManager } from "./auth.ts";
 
 interface DeployConfig {
