@@ -1,2 +1,6 @@
 .idea/*
 .vscode/*
+.auth-token
+deno.lock
+deployments/
+npm/node_modules/
