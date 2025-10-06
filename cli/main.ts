@@ -3,6 +3,9 @@ import { deleteDeployment } from "./delete.ts";
 import { runCleanup } from "./cleanup.ts";
 import { AuthManager } from "./auth.ts";
 
+/**
+ * Main CLI entry point to mudhost hosting service.
+ */
 async function main() {
     const args = Deno.args;
     const command = args[0];

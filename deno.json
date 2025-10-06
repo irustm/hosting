@@ -1,6 +1,6 @@
 {
   "name": "@mudhost/cli",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "license": "MIT",
   "exports": "./cli/main.ts",
   "tasks": {
@@ -8,7 +8,7 @@
     "cli": "deno run --allow-net --allow-read cli/main.ts"
   },
   "publish": {
-    "include": ["cli"]
+    "include": ["cli", "README.md" ]
   },
   "imports": {
     "@std/fs": "jsr:@std/fs@^1.0.19",
