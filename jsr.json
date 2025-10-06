@@ -1,0 +1,9 @@
+{
+  "name": "@mudhost/cli",
+  "version": "0.1.0",
+  "license": "MIT",
+  "exports": "./cli/main.ts",
+  "publish": {
+    "include": ["cli"]
+  }
+}
