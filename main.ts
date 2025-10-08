@@ -157,7 +157,12 @@ class DeploymentService {
         files: Record<string, string>,
         createdBy?: string
     ): Promise<Deployment> {
-        const deploymentId = this.sanitizeDeploymentId(`${projectId}-${branch}-${Date.now()}`);
+        let deploymentId = this.sanitizeDeploymentId(`${projectId}-${branch}-${Date.now()}`);
+
+        if(branch === 'main' || branch === 'master') {
+            deploymentId = this.sanitizeDeploymentId(`${projectId}`);
+        }
+
         const deploymentDir = join(this.baseDir, deploymentId);
 
         await ensureDir(deploymentDir);
