@@ -1,12 +1,51 @@
 <!doctype html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Document</title>
+    <title>Hello World!</title>
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #6dd5ed, #2193b0, #f7971e, #ffd200);
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        .hello-container {
+            background: rgba(255,255,255,0.85);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            padding: 40px 60px;
+            text-align: center;
+            animation: fadeIn 1.2s ease;
+        }
+        .hello-title {
+            font-size: 2.8rem;
+            font-weight: bold;
+            color: #2193b0;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 8px #f7971e55;
+        }
+        .hello-subtitle {
+            font-size: 1.2rem;
+            color: #333;
+            margin-bottom: 0;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+    </style>
 </head>
-<script src="main.js" defer></script>
 <body>
- Hello World!
+<div class="hello-container">
+    <div class="hello-title">Hello, World!</div>
+    <div class="hello-subtitle">Welcome to your colorful HTML starter template!</div>
+</div>
+<script src="main.js" defer></script>
 </body>
 </html>

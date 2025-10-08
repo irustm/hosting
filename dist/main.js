@@ -1,1 +1,1 @@
-console.log(1)
+console.log('This is a sample JavaScript file.');
